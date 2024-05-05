@@ -181,13 +181,11 @@
 </style>
 <script>
 import axios from 'axios';
-import { GDialog } from 'gitart-vue-dialog'
-import { mapMutations, mapState } from "vuex";
+
 
 export default {
     name: "posting",
     components: {
-        GDialog,
     },
     data() {
         return{
