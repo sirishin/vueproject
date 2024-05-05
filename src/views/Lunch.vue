@@ -43,7 +43,7 @@ export default {
     },
     methods: {
         getlunch: function(){
-            axios.get('/api/lunch')
+            axios.get('/api/lunch',{ withCredentials: true })
             .then(response =>{
                 console.log(response);
                 this.lunch=response.data;

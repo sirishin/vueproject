@@ -65,7 +65,7 @@ export default {
     sendid: function(){
       console.log(sessionStorage.getItem('userid'))
       axios.post('/api/identity/'+this.ids,{
-      }).then(response => {
+      },{ withCredentials: true }).then(response => {
         console.log(response)
         this.info = response.data
         this.imageUrl = response.data.image

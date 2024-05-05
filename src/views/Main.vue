@@ -266,7 +266,7 @@ export default {
         complete(i){
             axios.put('/api/everything/'+i,{
                 tc: this.tc
-            }).then(response =>{
+            },{ withCredentials: true }).then(response =>{
                 window.location.reload(true);
             })
             .catch(function (error) {
@@ -275,7 +275,7 @@ export default {
         },
         deletepoam: function(i){
             axios.delete('/api/everything/' + i, {
-            }).then(response => {
+            },{ withCredentials: true }).then(response => {
                 console.log(response)
                 for(var n = 0; n < this.todos.length; n++){
                     if (this.todos[n].num==this.selectedtitle.num){
@@ -298,7 +298,7 @@ export default {
             this.id = sessionStorage.getItem('userid')
             this.selectedtitle = this.todos[i]
             axios.get('/api/mentscollec/'+ this.selectedtitle.num[0],{
-            }).then(response => {
+            },{ withCredentials: true }).then(response => {
                 this.finisi=response.data.ment;
                 console.log(response.data.view)
                 console.log(this.finisi)
@@ -313,7 +313,7 @@ export default {
             console.log(this.coments)
             axios.post('/api/mentscollec/'+1,{
                 coments : this.coments
-            })
+            },{ withCredentials: true })
             .then(response =>{
                 this.coments.ment='';
                 // console.log(response);
@@ -324,7 +324,7 @@ export default {
         },
         deletment: function(i){
             axios.delete('/api/mentscollec/'+i,{
-            })
+            },{ withCredentials: true })
             window.location.reload(true);
 
             // .then(response =>{
@@ -348,7 +348,7 @@ export default {
             console.log(this.tc);
             axios.post('/api/everything/'+1, { 
             tc: this.tc
-            })
+            },{ withCredentials: true })
             .catch(function (error) {
             alert(error)
             })
@@ -363,7 +363,7 @@ export default {
                 console.log(response);
                 this.todos=response.data;
                 console.log(this.todos)
-        })
+        },{ withCredentials: true })
         .catch(e => {
           this.errors.push(e);
         });
