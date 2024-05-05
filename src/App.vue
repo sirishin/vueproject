@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Sidenav from "./examples/Sidenav";
+import Sidenav from "./examples/Sidenav.js";
 import Navbar from "@/examples/Navbars/Navbar.vue";
 import AppFooter from "@/examples/Footer.vue";
 import { mapMutations, mapState } from "vuex";
