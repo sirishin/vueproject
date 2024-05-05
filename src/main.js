@@ -5,6 +5,7 @@ import router from "./router/index";
 import "./assets/css/nucleo-icons.css";
 import "./assets/css/nucleo-svg.css";
 import MaterialDashboard from "./material-dashboard";
+import axios from "axios";
 
 
 // import 'gitart-vue-dialog/dist/style.css'
@@ -20,6 +21,7 @@ appInstance.use(MaterialDashboard);
 
 // appInstance.component('GDialog', GDialog)
 // appInstance.use(dialogPlugin)
+axios.defaults.withCredentials = true
 
 appInstance.mount("#app");
 

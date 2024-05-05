@@ -61,6 +61,7 @@ div.container {
 <script>
 import axios from 'axios';
 import Skycon from "vue-skycons";
+axios.defaults.withCredentials = true
 
 export default {
     name: "posting",
