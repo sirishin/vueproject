@@ -2,9 +2,9 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import store from "./store";
 import router from "./router/index";
-import "./assets/css/nucleo-icons.css";
-import "./assets/css/nucleo-svg.css";
-import MaterialDashboard from "./material-dashboard";
+// import "./assets/css/nucleo-icons.css";
+// import "./assets/css/nucleo-svg.css";
+// import MaterialDashboard from "./material-dashboard";
 import axios from "axios";
 
 
@@ -17,11 +17,7 @@ const appInstance = createApp(App);
 
 appInstance.use(store);
 appInstance.use(router);
-appInstance.use(MaterialDashboard);
-
-// appInstance.component('GDialog', GDialog)
-// appInstance.use(dialogPlugin)
-axios.defaults.withCredentials = true
+// axios.defaults.withCredentials = true
 
 appInstance.mount("#app");
 
