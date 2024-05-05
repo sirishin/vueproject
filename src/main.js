@@ -4,7 +4,7 @@ import store from "./store.js";
 import router from "./router/index.js";
 import "./assets/css/nucleo-icons.css";
 import "./assets/css/nucleo-svg.css";
-import MaterialDashboard from "./material-dashboard.js";
+import MaterialDashboard from "./material-dashboard";
 import axios from "axios";
 
 
