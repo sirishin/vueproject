@@ -15,17 +15,17 @@ import axios from "axios";
 
 const appInstance = createApp(App);
 
-// appInstance.use(store);
-// appInstance.use(router);
-// axios.defaults.withCredentials = true
+appInstance.use(store);
+appInstance.use(router);
+axios.defaults.withCredentials = true
 
-// appInstance.mount("#app");
+appInstance.mount("#app");
 
-new Vue({
-    router,
-    store,
-    render: h => h(App),
-}).$mount('#app')
+// new Vue({
+//     router,
+//     store,
+//     render: h => h(App),
+// }).$mount('#app')
 
 // "glightbox": "^3.2.0",
 
