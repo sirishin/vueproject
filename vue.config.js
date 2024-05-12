@@ -1,6 +1,6 @@
 const { defineConfig } = require('@vue/cli-service')
-module.exports = {
-  transpileDependencies: [ "@splidejs" ],
+module.exports = defineConfig({
+  transpileDependencies: true,
   outputDir: 'target/dist',
   assetsDir: 'static',
   lintOnSave: false,
@@ -19,4 +19,4 @@ module.exports = {
       },
     },
   },
-}
+})
