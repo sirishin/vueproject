@@ -5,10 +5,10 @@ module.exports = {
   assetsDir: 'static',
   lintOnSave: false,
   devServer: {
-    port: 5000,
+    port: 8080,
     historyApiFallback: true,
     allowedHosts: "all",
-    public: 'http://localhost:5000',
+    public: 'http://localhost:8080',
     proxy: {
       "/api": {
         target: "https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/",
