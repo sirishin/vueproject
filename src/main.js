@@ -4,7 +4,7 @@ import store from "./store";
 import router from "./router/index";
 // import "./assets/css/nucleo-icons.css";
 // import "./assets/css/nucleo-svg.css";
-// import MaterialDashboard from "./material-dashboard";
+import MaterialDashboard from "./material-dashboard";
 import axios from "axios";
 
 
@@ -17,6 +17,7 @@ const appInstance = createApp(App);
 
 appInstance.use(store);
 appInstance.use(router);
+appInstance.use(MaterialDashboard);
 axios.defaults.withCredentials = true
 
 appInstance.mount("#app");
