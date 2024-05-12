@@ -7,6 +7,7 @@ module.exports = {
   devServer: {
     port: 5000,
     historyApiFallback: true,
+    allowedHosts: "all",
     public: 'http://localhost:5000',
     proxy: {
       "/api": {
