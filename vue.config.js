@@ -5,9 +5,9 @@ module.exports = {
   assetsDir: 'static',
   lintOnSave: false,
   devServer: {
-    port: 8080,
+    port: 5000,
     historyApiFallback: true,
-    public: 'http://localhost:8080',
+    public: 'http://localhost:5000',
     proxy: {
       "/api": {
         target: "https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/",
