@@ -9,7 +9,7 @@ module.exports = {
     allowedHosts: "all",
     disableHostCheck: true,
     historyApiFallback: true,
-    // public: 'http://localhost:8080',
+    public: 'http://localhost:8080',
     proxy: {
       "/api": {
         target: "https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/",
