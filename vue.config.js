@@ -7,7 +7,7 @@ module.exports = {
   devServer: {
     port: 8080,
     allowedHosts: "all",
-    disableHostCheck: true,
+    // disableHostCheck: true,
     historyApiFallback: true,
     public: 'http://localhost:8080',
     proxy: {
