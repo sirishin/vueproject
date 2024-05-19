@@ -6,8 +6,8 @@ module.exports = {
   lintOnSave: false,
   devServer: {
     port: 8080,
-    historyApiFallback: true,
     allowedHosts: "all",
+    historyApiFallback: true,
     public: 'http://localhost:8080',
     proxy: {
       "/api": {
