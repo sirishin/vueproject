@@ -13,14 +13,16 @@ import axios from "axios";
 // import { plugin as dialogPlugin } from 'gitart-vue-dialog'
 
 
-const appInstance = createApp(App);
+// const appInstance = createApp(App);
 
-appInstance.use(store);
-appInstance.use(router);
-appInstance.use(MaterialDashboard);
-axios.defaults.withCredentials = true
-
-appInstance.mount("#app");
+// appInstance.use(store);
+// appInstance.use(router);
+// appInstance.use(MaterialDashboard);
+// axios.defaults.withCredentials = true
+createApp(App).use(store);
+createApp(App).use(router);
+createApp(App).use(MaterialDashboard);
+createApp(App).mount("#app");
 
 // new Vue({
 //     router,
