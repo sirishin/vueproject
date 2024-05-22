@@ -47,13 +47,13 @@ export default {
             this.$router.push('/RegisterUser')
         },
     signUp: function() {
-        console.log(1)
+        // console.log(1)
         apiClient.post('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/login', { 
         user: this.user
         })
         .then(response =>{
-                console.log(response);
-                console.log(response.data.massege)
+                // console.log(response);
+                // console.log(response.data.massege)
                 if (response.data.massege == 'seccess'){
                     sessionStorage.setItem('userid', response.data.userid);
                     sessionStorage.setItem('password', response.data.password);
