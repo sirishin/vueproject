@@ -30,6 +30,7 @@
 </template>
 <script>
 import axios from 'axios';
+import apiClient from '@/main.js';
 // import router from '../router';
 export default {
     name: "posting",
@@ -47,7 +48,7 @@ export default {
         },
     signUp: function() {
         console.log(1)
-        axios.post('/api/login', { 
+        apiClient.post('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/login', { 
         user: this.user
         })
         .then(response =>{
