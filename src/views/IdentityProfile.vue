@@ -64,10 +64,10 @@ export default {
   },
   methods:{
     sendid: function(){
-      console.log(sessionStorage.getItem('userid'))
+      // console.log(sessionStorage.getItem('userid'))
       apiClient.post('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/identity/'+this.ids,{
       },{ withCredentials: true }).then(response => {
-        console.log(response)
+        // console.log(response)
         this.info = response.data
         this.imageUrl = response.data.image
       })
