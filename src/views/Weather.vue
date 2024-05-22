@@ -61,6 +61,7 @@ div.container {
 <script>
 import axios from 'axios';
 import Skycon from "vue-skycons";
+import apiClient from '@/main.js';
 axios.defaults.withCredentials = true
 
 export default {
@@ -93,7 +94,7 @@ export default {
             return Object.keys(o).sort().reduce((r,k)=>(r[k]=o[k],r),{});
         },
         getweather: function(){
-            axios.get('/api/weather')
+            apiClient.get('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/weather')
             .then(response =>{
                 console.log(response.data.c);
                 this.weather=response.data.whea;
