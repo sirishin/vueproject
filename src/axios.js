@@ -1,7 +1,8 @@
 import axios from 'axios';
 
+// 환경 변수를 사용하여 기본 URL 설정
 const instance = axios.create({
-  baseURL: process.env.VUE_APP_BASE_URL // 여기에 기본 URL을 설정합니다.
+  baseURL: process.env.VUE_APP_API_BASE_URL
 });
 
 export default instance;
