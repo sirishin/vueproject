@@ -96,17 +96,17 @@ export default {
         getweather: function(){
             apiClient.get('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/weather')
             .then(response =>{
-                console.log(response.data.c);
+                // console.log(response.data.c);
                 this.weather=response.data.whea;
                 this.tw = response.data.d
                 for(const apd of this.tw){
-                    console.log(apd)
+                    // console.log(apd)
                 }
                     this.weatherUpdata = this.weather[0]
-                    console.log(this.weatherUpdata)
+                    // console.log(this.weatherUpdata)
                 })
         .catch(e => {
-            console.log(e)
+            // console.log(e)
             this.errors.push(e);
           
         });
