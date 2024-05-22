@@ -58,13 +58,13 @@ export default {
         //     this.imageUploaded = URL.createObjectURL(this.image)
         // },
         register: function() {
-            console.log(1)
+            // console.log(1)
             apiClient.post('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/register', { 
             user: this.user,
             // image : this.imageUploaded
             })
             .then(response =>{
-                    console.log(response);
+                    // console.log(response);
                     if (response.data.massege == 'seccess'){
                         this.$router.push('/Login')
                     }
