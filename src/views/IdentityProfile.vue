@@ -39,6 +39,7 @@ import axios from "axios";
 import ProfileInfoCard from "./components/ProfileInfoCard.vue";
 import setNavPills from "@/assets/js/nav-pills.js";
 import setTooltip from "@/assets/js/tooltip.js";
+import apiClient from '@/main.js';
 
 export default {
   name: "Error",
@@ -64,7 +65,7 @@ export default {
   methods:{
     sendid: function(){
       console.log(sessionStorage.getItem('userid'))
-      axios.post('/api/identity/'+this.ids,{
+      apiClient.post('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/identity/'+this.ids,{
       },{ withCredentials: true }).then(response => {
         console.log(response)
         this.info = response.data
