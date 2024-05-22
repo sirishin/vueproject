@@ -74,7 +74,7 @@ export default {
     methods: {
         initMap() {
             this.isload = true;
-            console.log(1)
+            // console.log(1)
             this.isLoading = false;
             var positions = [
                 {
@@ -175,7 +175,7 @@ export default {
         },
         onClose(event){
             this.connection.send('good')
-            console.log('WebSocket connection closed:', event.code);
+            // console.log('WebSocket connection closed:', event.code);
             setTimeout(()=> {
                 this.connectionWebsocket();
             }, 5000);
@@ -183,17 +183,17 @@ export default {
         unmounted() {
             this.connection.close();
             this.connection = null; // to prevent memory leaking
-            console.log("Closing connection to WebSocket Server");
+            // console.log("Closing connection to WebSocket Server");
         },
         onOpen(event) {
-            console.log("WebSocket connection opened:", event);
+            // console.log("WebSocket connection opened:", event);
         },
         onMessage(event) {
             this.onSocketOpen(event);
-            console.log("WebSocket message received:");
+            // console.log("WebSocket message received:");
         },
         onError(error) {
-            console.log("WebSocket error:", error);
+            // console.log("WebSocket error:", error);
         },
         // start(){
         //     let connection = new WebSocket("ws://127.0.0.1:8800");
@@ -225,9 +225,9 @@ export default {
         //     }
         // },
         onSocketOpen(event){
-            console.log(12)
+            // console.log(12)
             this.dataa = JSON.parse(event.data);
-            console.log(this.dataa)
+            // console.log(this.dataa)
             if(this.dataa.type == 'businfo'){
                 this.initMap()
             }
