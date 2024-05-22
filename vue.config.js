@@ -12,7 +12,7 @@ module.exports = {
     // public: 'http://localhost:8080',
     proxy: {
       "/api": {
-        target: "https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/",
+        target: process.env.VUE_APP_API_BASE_URL,
         ws: true,
         withCredentials: true,
         changeOrigin: true,
