@@ -43,7 +43,7 @@ export default {
     },
     methods: {
         getlunch: function(){
-            axios.get('/api/lunch',{ withCredentials: true })
+            axios.get('process.env.VUE_APP_API_BASE_URL/api/lunch',{ withCredentials: true })
             .then(response =>{
                 console.log(response);
                 this.lunch=response.data;
