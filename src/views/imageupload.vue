@@ -153,7 +153,8 @@
 </style>
 <script>
 import axios from 'axios';
-
+import apiClient from '@/main.js';
+    
 export default {
     name: "posting",
     components: {
@@ -200,7 +201,7 @@ export default {
     },
     computed: {
         pageCount: function() {
-            console.log(1)
+            // console.log(1)
             const listLeng = this.todos.length;
             const listSize = this.pageSize;
             let page = Math.floor(listLeng / listSize);
@@ -210,7 +211,7 @@ export default {
         },
 
         paginatedData: function() {
-            console.log(2)
+            // console.log(2)
             const start = this.pageNum * this.pageSize;
             const end = start + this.pageSize;
             return this.todos.slice(start, end);
@@ -223,7 +224,7 @@ export default {
     methods: {
         imageUpload: function(){
             this.image = this.$refs.image.files[0]
-            console.log(this.image)
+            // console.log(this.image)
             this.imageUploaded = URL.createObjectURL(this.image)
         },
         nextPage: function(){
@@ -233,13 +234,13 @@ export default {
             this.pageNum -= 1;
         },
         deletepoam: function(i){
-            axios.delete('/api/deletes/' + i, {
+            apiClient.delete('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/deletes/' + i, {
             }).then(response => {
-                console.log(response)
+                // console.log(response)
                 for(var n = 0; n < this.todos.length; n++){
                     if (this.todos[n].num==this.selectedtitle.num){
                         this.todos.splice(n,1);
-                        console.log(this.todos)
+                        // console.log(this.todos)
                         n--;
                         this.closeModal()
                     }
@@ -257,12 +258,12 @@ export default {
             this.id = sessionStorage.getItem('userid')
             this.selectedtitle = this.todos[i]
             this.imageUrl = this.selectedtitle.photo          
-            console.log(this.imageUrl)
-            axios.get('/api/mentscollecs/'+ this.selectedtitle.num[0],{
+            // console.log(this.imageUrl)
+            apiClient.get('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/mentscollecs/'+ this.selectedtitle.num[0],{
             }).then(response => {
-                console.log(response)
+                // console.log(response)
                 this.finisi=response.data.ment;
-                console.log(response.data.view)
+                // console.log(response.data.view)
                 this.todos[i].view = response.data.view;
             })
             this.closeText=false;
@@ -270,19 +271,19 @@ export default {
         },
         wantment: function(){
             this.coments.num = this.selectedtitle.num
-            console.log(this.coments)
-            axios.post('/api/mentscollecs/'+1,{
+            // console.log(this.coments)
+            apiClient.post('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/mentscollecs/'+1,{
                 coments : this.coments
             })
             .then(response =>{
                 this.coments.ment='';
                 // console.log(response);
-                console.log(46)
+                // console.log(46)
                 this.finisi = response.data.ment;
             })
         },
         deletment:function(i){
-            axios.delete('/api/mentscollecs/'+i,{
+            apiClient.delete('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/mentscollecs/'+i,{
             })
             window.location.reload(true);
         },
@@ -293,7 +294,7 @@ export default {
         },
         upload(){
             window.location.reload(true);
-            console.log(1)
+            // console.log(1)
             const dto = {
                 date: this.date,
                 routine: this.content
@@ -307,17 +308,17 @@ export default {
             formData.append('title', this.title)
             formData.append('content', this.content)
             formData.append('id',sessionStorage.getItem('userid'))
-            console.log(formData)
+            // console.log(formData)
 
             const config = {
                 headers: {
                 'Content-Type': 'multipart/form-data' // 컨텐츠 타입 지정해줘야함
                 }
             }
-            axios.post('/api/updata', formData, config)
+            apiClient.post('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/updata', formData, config)
             .then(response =>{
-                    console.log(response);
-                    console.log(response.data.num);
+                    // console.log(response);
+                    // console.log(response.data.num);
                     this.tc['num'] = response.data.num;
                     this.tc['times'] = response.data.times;
                     this.tc['view'] = response.data.view;
@@ -331,11 +332,11 @@ export default {
             })
         },
         getTodos: function(){
-            axios.get('/api/start')
+            apiClient.get('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/start')
             .then(response =>{
-                console.log(response);
+                // console.log(response);
                 this.todos=response.data;
-                console.log(this.todos)
+                // console.log(this.todos)
         })
         .catch(e => {
           this.errors.push(e);
