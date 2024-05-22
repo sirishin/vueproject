@@ -181,7 +181,7 @@
 </style>
 <script>
 import axios from 'axios';
-
+import apiClient from '@/main.js';
 
 export default {
     name: "posting",
@@ -264,7 +264,7 @@ export default {
             this.opensModals = false;
         },
         complete(i){
-            axios.put('/api/everything/'+i,{
+            apiClient.put('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/everything/'+i,{
                 tc: this.tc
             },{ withCredentials: true }).then(response =>{
                 window.location.reload(true);
@@ -274,7 +274,7 @@ export default {
             })
         },
         deletepoam: function(i){
-            axios.delete('/api/everything/' + i, {
+            apiClient.delete('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/everything/' + i, {
             },{ withCredentials: true }).then(response => {
                 console.log(response)
                 for(var n = 0; n < this.todos.length; n++){
@@ -297,7 +297,7 @@ export default {
             this.openModal = true;
             this.id = sessionStorage.getItem('userid')
             this.selectedtitle = this.todos[i]
-            axios.get('/api/mentscollec/'+ this.selectedtitle.num[0],{
+            apiClient.get('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/mentscollec/'+ this.selectedtitle.num[0],{
             },{ withCredentials: true }).then(response => {
                 this.finisi=response.data.ment;
                 console.log(response.data.view)
@@ -311,7 +311,7 @@ export default {
         wantment: function(){
             this.coments.num = this.selectedtitle.num
             console.log(this.coments)
-            axios.post('/api/mentscollec/'+1,{
+            apiClient.post('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/mentscollec/'+1,{
                 coments : this.coments
             },{ withCredentials: true })
             .then(response =>{
@@ -323,7 +323,7 @@ export default {
             })
         },
         deletment: function(i){
-            axios.delete('/api/mentscollec/'+i,{
+            apiClient.delete('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/mentscollec/'+i,{
             },{ withCredentials: true })
             window.location.reload(true);
 
@@ -346,7 +346,7 @@ export default {
         upload(){
             console.log(1)
             console.log(this.tc);
-            axios.post('/api/everything/'+1, { 
+            apiClient.post('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/everything/'+1, { 
             tc: this.tc
             },{ withCredentials: true })
             .catch(function (error) {
@@ -358,7 +358,7 @@ export default {
 
         },
         getTodos: function(){
-            axios.get('/api/need')
+            apiClient.get('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/need')
             .then(response =>{
                 console.log(response);
                 this.todos=response.data;
