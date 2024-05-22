@@ -226,7 +226,7 @@ export default {
     },
     computed: {
         pageCount: function() {
-            console.log(1)
+            // console.log(1)
             const listLeng = this.todos.length;
             const listSize = this.pageSize;
             let page = Math.floor(listLeng / listSize);
@@ -236,7 +236,7 @@ export default {
         },
 
         paginatedData: function() {
-            console.log(2)
+            // console.log(2)
             const start = this.pageNum * this.pageSize;
             const end = start + this.pageSize;
             return this.todos.slice(start, end);
@@ -276,11 +276,11 @@ export default {
         deletepoam: function(i){
             apiClient.delete('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/everything/' + i, {
             },{ withCredentials: true }).then(response => {
-                console.log(response)
+                // console.log(response)
                 for(var n = 0; n < this.todos.length; n++){
                     if (this.todos[n].num==this.selectedtitle.num){
                         this.todos.splice(n,1);
-                        console.log(this.todos)
+                        // console.log(this.todos)
                         n--;
                         this.closeModal()
                     }
@@ -300,8 +300,8 @@ export default {
             apiClient.get('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/mentscollec/'+ this.selectedtitle.num[0],{
             },{ withCredentials: true }).then(response => {
                 this.finisi=response.data.ment;
-                console.log(response.data.view)
-                console.log(this.finisi)
+                // console.log(response.data.view)
+                // console.log(this.finisi)
                 // this.comdelet=this.finisi
                 this.todos[i].views = response.data.view;
             })
@@ -310,16 +310,16 @@ export default {
         },
         wantment: function(){
             this.coments.num = this.selectedtitle.num
-            console.log(this.coments)
+            // console.log(this.coments)
             apiClient.post('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/mentscollec/'+1,{
                 coments : this.coments
             },{ withCredentials: true })
             .then(response =>{
                 this.coments.ment='';
                 // console.log(response);
-                console.log(46)
+                // console.log(46)
                 this.finisi = response.data.ment;
-                console.log(this.finisi)
+                // console.log(this.finisi)
             })
         },
         deletment: function(i){
@@ -344,8 +344,8 @@ export default {
             this.opensModls = false;
         },
         upload(){
-            console.log(1)
-            console.log(this.tc);
+            // console.log(1)
+            // console.log(this.tc);
             apiClient.post('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/everything/'+1, { 
             tc: this.tc
             },{ withCredentials: true })
@@ -360,9 +360,9 @@ export default {
         getTodos: function(){
             apiClient.get('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/need')
             .then(response =>{
-                console.log(response);
+                // console.log(response);
                 this.todos=response.data;
-                console.log(this.todos)
+                // console.log(this.todos)
         },{ withCredentials: true })
         .catch(e => {
           this.errors.push(e);
