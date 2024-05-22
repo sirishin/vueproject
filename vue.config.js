@@ -5,7 +5,7 @@ module.exports = {
   assetsDir: 'static',
   lintOnSave: false,
   devServer: {
-    port: 8080,
+    // port: 8080,
     allowedHosts: "all",
     disableHostCheck: true,
     historyApiFallback: true,
