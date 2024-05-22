@@ -36,6 +36,7 @@
 </template>
 <script>
 import axios from 'axios';
+import apiClient from '@/main.js';
 export default {
     name: "posting",
     data() {
