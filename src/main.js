@@ -7,7 +7,7 @@ import router from "./router/index";
 import MaterialDashboard from "./material-dashboard";
 import axios from "axios";
 
-axios.defaults.baseURL = 'https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/'; // 여기에서 기본 URL을 설정합니다.
+// axios.defaults.baseURL = 'https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/'; // 여기에서 기본 URL을 설정합니다.
 axios.defaults. withCredentials = true;
 
 // import 'gitart-vue-dialog/dist/style.css'
