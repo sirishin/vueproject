@@ -311,7 +311,7 @@ export default {
         wantment: function(){
             this.coments.num = this.selectedtitle.num
             // console.log(this.coments)
-            apiClient.post('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/mentscollec/'+1,{
+            apiClient.post('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/mentscollec/1',{
                 coments : this.coments
             },{ withCredentials: true })
             .then(response =>{
@@ -346,7 +346,7 @@ export default {
         upload(){
             // console.log(1)
             // console.log(this.tc);
-            apiClient.post('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/everything/'+1, { 
+            apiClient.post('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/everything/1', { 
             tc: this.tc
             },{ withCredentials: true })
             .catch(function (error) {
