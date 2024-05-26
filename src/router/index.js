@@ -8,14 +8,19 @@ import Profile from "../views/Profile.vue";
 import Imageboard from "../views/imageupload.vue";
 import Weather from "../views/Weather.vue";
 import Businfo from "../views/Businfo.vue";
-// import c from "../views/client.vue";
 import IdentityProfile from "../views/IdentityProfile.vue";
+import Jireoi from "../views/Jireoi.vue"
 
 const routes = [
   {
     path: "/",
     name: "/",
     redirect: "/Lunch",
+  },
+  {
+    path: "/Jireoi",
+    name: "Jireoi",
+    component: Jireoi,
   },
   {
     path: "/Businfo",
