@@ -114,12 +114,12 @@
           url="#"
           :aria-controls="''"
           v-bind:collapse="false"
-          collapseRef="IdentityProfile"
-          navText="나의 프로필"
+          collapseRef="Jireoi"
+          navText="미니 게임"
           style="font-weight: bold;"
         >
           <template v-slot:icon>
-            <i class="material-icons-round opacity-10 fs-5">face</i>
+            <i class="material-icons-round opacity-10 fs-5">videogame_asset</i>
           </template>
         </sidenav-collapse>
         </a>
@@ -130,12 +130,12 @@
           url="#"
           :aria-controls="''"
           v-bind:collapse="false"
-          collapseRef="Profile"
-          navText="주인장 프로필"
+          collapseRef="IdentityProfile"
+          navText="나의 프로필"
           style="font-weight: bold;"
         >
           <template v-slot:icon>
-            <i class="material-icons-round opacity-10 fs-5">assignment_ind</i>
+            <i class="material-icons-round opacity-10 fs-5">face</i>
           </template>
         </sidenav-collapse>
         </a>
