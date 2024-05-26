@@ -1,11 +1,11 @@
 <template>
     <div class="minesweeper">
-      <h1>MineSweeper Game</h1>
+      <h1>지뢰찾으라우</h1>
       <div class="status-bar">
-        <div>Remaining Mines: {{ remainingMines }}</div>
+        <div>지뢰 탐지: {{ remainingMines }}</div>
         <div>
           <button @click="toggleFlagMode">
-            {{ flagMode ? "Switch to Normal Mode" : "Switch to Flag Mode" }}
+            {{ flagMode ? "평소 상태" : "지뢰 깃발 체제" }}
           </button>
         </div>
       </div>
@@ -20,7 +20,7 @@
           <span v-else-if="cell.revealed && !cell.mine">{{ cell.adjacentMines || '' }}</span>
         </div>
       </div>
-      <button v-if="gameOver" @click="restartGame">Restart Game</button>
+      <button v-if="gameOver" @click="restartGame">재출발</button>
     </div>
   </template>
   
