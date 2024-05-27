@@ -13,7 +13,7 @@
             <a
               class="font-weight-bold"
               target="_blank"
-              >HEE</a
+              >ETA</a
             >
           </div>
         </div>
