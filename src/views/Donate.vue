@@ -12,7 +12,7 @@
         </div>
         <hr>
         <h2 class="section-heading text-uppercase">명예의 전당</h2>
-            <div class="card">
+            <div class="card1">
         <div class="card-info">
             <div class="card-avatar"></div>
             <div class="card-title">대 효양고의 영광을 위하여</div>
@@ -22,7 +22,7 @@
 
 </template>
 <style>
-    .card {
+    .card1 {
  width: 190px;
  height: 254px;
  background: #f5f5f5;
