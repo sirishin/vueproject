@@ -10,13 +10,16 @@
             <!-- <h3 class="section-subheading text-muted">Give me the money</h3> -->
             <!-- <h4 class="section-subheading text-muted">문희는 탕후루가 먹고싶은데...</h4> -->
         </div>
-    </div>
-    <div class="card">
+        <hr>
+        <h2 class="section-heading text-uppercase">명예의 전당</h2>
+            <div class="card">
         <div class="card-info">
             <div class="card-avatar"></div>
             <div class="card-title">대 효양고의 영광을 위하여</div>
             </div>
     </div>
+    </div>
+
 </template>
 <style>
     .card {
@@ -73,7 +76,7 @@
 /*Text*/
 .card-title {
  color: #333;
- font-size: 1.5em;
+ font-size: 1.4em;
  font-weight: 600;
  line-height: 2rem;
 }
