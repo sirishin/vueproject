@@ -1,5 +1,6 @@
 <template>
-    <div>
+
+<div>
     <!-- 팝업 -->
     <div v-if="showPopup" class="popup">
       <!-- 팝업 내용 -->
@@ -22,7 +23,35 @@
       </div>
     </div>
   </div>
-    <section class="page-section" id="about">
+
+  <div id="cute-calendar">
+      <div class="calendar">
+        <div class="calendar-header">
+          <div class="col align-self-center">
+          <h4>{{ currentYear }}년 {{ currentMonthName }}</h4>
+          </div>
+        </div>
+        <div class="calendar-grid">
+          <div class="day" v-for="day in days" :key="day" @click="selectDate(day)">
+            {{ day }}
+          </div>
+        </div>
+      </div>
+  
+      <div v-if="showModal" class="modal-backdrop" @click.self="closeModal">
+        <div class="modal-content">
+          <button class="close-button" @click="closeModal">×</button>
+          <div v-if="lunch[ass[2]] != 'its empty'">
+          <h4 v-for="menu in lunch[ass[2]]" :key="menu">{{ menu }}</h4>
+          </div>
+          <div v-else>
+            <h4>급식 정보가 없습니다</h4>
+          </div>
+          <button class="modal-close-btn" @click="closeModal">닫기</button>
+        </div>
+      </div>
+    </div>
+    <!-- <section class="page-section" id="about">
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">lunch</h2>
@@ -50,7 +79,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 </template>
 <style>
 .popup {
@@ -87,6 +116,81 @@ button {
 /* 닫기 버튼 호버 스타일 */
 button:hover {
   background-color: #ff6b6b;
+}
+
+.calendar {
+width: 400px;
+margin: 0 auto;
+background-color: #ffebcd;
+border-radius: 15px;
+padding: 20px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.calendar-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 20px;
+}
+.calendar-grid {
+display: grid;
+grid-template-columns: repeat(7, 1fr);
+gap: 5px;
+}
+.day {
+width: 40px;
+height: 40px;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #fff;
+border-radius: 50%;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+.day:hover {
+background-color: #f0e68c;
+}
+.modal-backdrop {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.modal-content {
+background-color: #fff;
+padding: 20px;
+border-radius: 10px;
+position: relative;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.close-button {
+position: absolute;
+top: 10px;
+right: 10px;
+background: none;
+border: none;
+font-size: 20px;
+cursor: pointer;
+}
+.modal-close-btn {
+display: block;
+margin: 20px auto 0;
+padding: 10px 20px;
+background-color: #f0e68c;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+}
+.modal-close-btn:hover {
+background-color: #ffd700;
 }
 
 /* 하루 동안 안 보기 체크박스 스타일 */
@@ -146,15 +250,29 @@ button:hover {
 </style>
 <script>
 import axios from 'axios';
-import apiClient from '@/main.js';
 export default {
     name: "posting",
     data() {
         return{
-            showPopup: true, // 팝업을 보여줄지 여부
-            hideForADay: false, 
-            lunch: []
+          showPopup: true,
+        hideForADay: false,
+        lunch: {},
+        currentYear: new Date().getFullYear(),
+        currentMonth: new Date().getMonth(),
+        days: [],
+        showModal: false,
+        selectedDate: '',
+        selectedLunch: '',
+        ass:''
         };
+    },
+    computed:{
+      currentMonthName() {
+        return new Date(this.currentYear, this.currentMonth).toLocaleString('default', { month: 'long' });
+      }
+    },
+    created(){
+      this.generateCalendar();
     },
     mounted(){
         const hidePopup = localStorage.getItem('hidePopup');
@@ -164,6 +282,38 @@ export default {
         this.getlunch();
     },
     methods: {
+      generateCalendar() {
+        const daysInMonth = new Date(this.currentYear, this.currentMonth + 1, 0).getDate();
+        this.days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
+      },
+      selectDate(day) {
+        const date = `${this.currentYear}-${this.currentMonth + 1}-${day}`;
+        this.selectedDate = date;
+        this.ass = this.selectedDate.split('-')
+        // console.log(this.ass[2])
+        // this.selectedLunch = this.lunch[ass[2]]
+        // console.log(this.selectedLunch)
+        this.showModal = true;
+      },
+      closeModal() {
+        this.showModal = false;
+      },
+      prevMonth() {
+        this.currentMonth--;
+        if (this.currentMonth < 0) {
+          this.currentMonth = 11;
+          this.currentYear--;
+        }
+        this.generateCalendar();
+      },
+      nextMonth() {
+        this.currentMonth++;
+        if (this.currentMonth > 11) {
+          this.currentMonth = 0;
+          this.currentYear++;
+        }
+        this.generateCalendar();
+      },
         closePopup() {
       // 체크박스가 선택되었을 때 로컬 스토리지에 값을 저장하여 하루 동안 팝업을 보이지 않게 함
             if (this.hideForADay) {
@@ -172,7 +322,7 @@ export default {
             this.showPopup = false; // 팝업을 닫음
         },
         getlunch: function(){
-            apiClient.get('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/lunch',{ withCredentials: true })
+            axios.get('/api/lunch',{ withCredentials: true })
             .then(response =>{
                 // console.log(response);
                 this.lunch=response.data;
