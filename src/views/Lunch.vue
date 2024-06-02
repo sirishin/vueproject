@@ -51,35 +51,6 @@
         </div>
       </div>
     </div>
-    <!-- <section class="page-section" id="about">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">lunch</h2>
-                <h3 class="section-subheading text-muted">점심을 확인해보세요!</h3>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col">
-                    <h2>오늘의 중식</h2>
-                    <div v-if="lunch.today != '오늘 급식은 없습니다'">
-                    <h4 v-for="meneu in lunch.today" :key="meneu">{{ meneu }}</h4>
-                    </div>
-                    <div v-else>
-                        <h4>오늘 급식은 없습니다.</h4>
-                    </div>
-                </div>
-                <div class="col">
-                    <h2>내일의 중식</h2>
-                    <div v-if="lunch.tomorru != '내일 급식은 없습니다'">
-                    <h4 v-for="menu in lunch.tomorru" :key="menu">{{ menu }}</h4>
-                    </div>
-                    <div v-else>
-                        <h4>내일 급식은 없습니다.</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
 </template>
 <style>
 .popup {
@@ -290,9 +261,9 @@ export default {
         const date = `${this.currentYear}-${this.currentMonth + 1}-${day}`;
         this.selectedDate = date;
         this.ass = this.selectedDate.split('-')
-        // console.log(this.ass[2])
-        // this.selectedLunch = this.lunch[ass[2]]
-        // console.log(this.selectedLunch)
+        console.log(this.ass[2])
+        this.selectedLunch = this.lunch[ass[2]]
+        console.log(this.selectedLunch)
         this.showModal = true;
       },
       closeModal() {
@@ -324,7 +295,7 @@ export default {
         getlunch: function(){
             axios.get('/api/lunch',{ withCredentials: true })
             .then(response =>{
-                // console.log(response);
+                console.log(response);
                 this.lunch=response.data;
         })
         .catch(e => {
