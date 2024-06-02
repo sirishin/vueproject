@@ -269,7 +269,7 @@ export default {
     methods: {
         register: function() {
             console.log(1)
-            axios.post('/api/register', { 
+            axios.post('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/register', { 
             user: this.user,
             // image : this.imageUploaded
             })
