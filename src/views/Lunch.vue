@@ -31,16 +31,16 @@
           <h4>{{ currentYear }}년 {{ currentMonthName }}</h4>
           </div>
         </div>
-        <div class="calendar-grid">
-          <!-- 요일을 표시하는 부분 -->
-          <div class="weekday" v-for="(day, index) in weekdays" :key="index">
-            {{ day }}
-          </div>
-          <!-- 날짜를 표시하는 부분 -->
-          <div class="day" v-for="day in days" :key="day" @click="selectDate(day)">
-            {{ day }}
-          </div>
-        </div>
+            <div class="calendar-grid">
+              <!-- 요일을 표시하는 부분 -->
+              <div class="weekday" v-for="(day, index) in weekdays" :key="index">
+                {{ day }}
+              </div>
+              <!-- 날짜를 표시하는 부분 -->
+              <div class="day" v-for="(day, index) in days" :key="index" @click="day && selectDate(day)">
+                {{ day }}
+              </div>
+            </div>
       </div>
   
       <div v-if="showModal" class="modal-backdrop" @click.self="closeModal">
@@ -124,6 +124,7 @@ border-radius: 50%;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 cursor: pointer;
 transition: background-color 0.3s ease;
+text-align: center;    
 }
 .day:hover {
 background-color: #f0e68c;
@@ -267,8 +268,21 @@ export default {
     },
     methods: {
       generateCalendar() {
+        const firstDayOfMonth = new Date(this.currentYear, this.currentMonth, 1).getDay();
         const daysInMonth = new Date(this.currentYear, this.currentMonth + 1, 0).getDate();
-        this.days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
+        const daysArray = [];
+
+        // Add empty slots for days before the first day of the month
+        for (let i = 0; i < firstDayOfMonth; i++) {
+            daysArray.push('');
+        }
+
+        // Add actual days of the month
+        for (let i = 1; i <= daysInMonth; i++) {
+            daysArray.push(i);
+        }
+
+        this.days = daysArray;
       },
       selectDate(day) {
         const date = `${this.currentYear}-${this.currentMonth + 1}-${day}`;
