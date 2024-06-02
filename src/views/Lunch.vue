@@ -293,7 +293,7 @@ export default {
             this.showPopup = false; // 팝업을 닫음
         },
         getlunch: function(){
-            apiClient.get('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/lunch/',{ withCredentials: true })
+            apiClient.get('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/lunch',{ withCredentials: true })
             .then(response =>{
                 // console.log(response);
                 this.lunch=response.data;
