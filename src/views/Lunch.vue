@@ -262,8 +262,6 @@ export default {
         this.selectedDate = date;
         this.ass = this.selectedDate.split('-')
         console.log(this.ass[2])
-        this.selectedLunch = this.lunch[ass[2]]
-        console.log(this.selectedLunch)
         this.showModal = true;
       },
       closeModal() {
