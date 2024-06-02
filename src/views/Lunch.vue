@@ -263,7 +263,7 @@ export default {
         const date = `${this.currentYear}-${this.currentMonth + 1}-${day}`;
         this.selectedDate = date;
         this.ass = this.selectedDate.split('-')
-        console.log(this.ass[2])
+        // console.log(this.ass[2])
         this.showModal = true;
       },
       closeModal() {
@@ -295,7 +295,7 @@ export default {
         getlunch: function(){
             apiClient.get('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/lunch/',{ withCredentials: true })
             .then(response =>{
-                console.log(response);
+                // console.log(response);
                 this.lunch=response.data;
         })
         .catch(e => {
