@@ -32,6 +32,11 @@
           </div>
         </div>
         <div class="calendar-grid">
+          <!-- 요일을 표시하는 부분 -->
+          <div class="weekday" v-for="(day, index) in weekdays" :key="index">
+            {{ day }}
+          </div>
+          <!-- 날짜를 표시하는 부분 -->
           <div class="day" v-for="day in days" :key="day" @click="selectDate(day)">
             {{ day }}
           </div>
@@ -208,6 +213,11 @@ background-color: #ffd700;
 .checkbox-container input:checked ~ .checkmark:after {
   display: block;
 }
+.weekday {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
 .checkbox-container .checkmark:after {
   left: 6px;
@@ -233,6 +243,7 @@ export default {
         currentYear: new Date().getFullYear(),
         currentMonth: new Date().getMonth(),
         days: [],
+        weekdays: ['일', '월', '화', '수', '목', '금', '토'], // 요일 데이터 추가
         showModal: false,
         selectedDate: '',
         selectedLunch: '',
