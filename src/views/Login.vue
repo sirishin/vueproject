@@ -43,11 +43,11 @@
 											<h4 class="mb-3 pb-3">Sign Up</h4>
 											<div class="form-group">
 												<input v-model="user.number" name="number" id="number" type="text" class="form-style" placeholder="School-Number" value>
-												<i class="input-icon uil uil-user"></i>
+												<i class="input-icon uil uil-backpack"></i>
 											</div>	
 											<div class="form-group mt-2">
                                                 <input v-model="user.name" class="form-style" type="text" name="name" id="name" placeholder="Name" value>
-												<i class="input-icon uil uil-phone"></i>
+												<i class="input-icon uil uil-user"></i>
 											</div>	
                                             <div class="form-group mt-2">
                                                 <input v-model="user.userid" class="form-style" type="text" placeholder="Id" name="id" id="id" value>
