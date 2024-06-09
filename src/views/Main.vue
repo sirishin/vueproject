@@ -226,17 +226,12 @@ export default {
     },
     computed: {
         pageCount: function() {
-            // console.log(1)
             const listLeng = this.todos.length;
             const listSize = this.pageSize;
-            let page = Math.floor(listLeng / listSize);
-            if (listLeng % listSize > 0) page += 1;
-
-            return page;
+            return Math.ceil(listLeng / listSize);
         },
 
         paginatedData: function() {
-            // console.log(2)
             const start = this.pageNum * this.pageSize;
             const end = start + this.pageSize;
             return this.todos.slice(start, end);
@@ -253,10 +248,14 @@ export default {
             this.text.style.display = '-webkit-box';
         },
         nextPage: function(){
-            this.pageNum +=1;
+            if (this.pageNum < this.pageCount - 1) {
+                this.pageNum += 1;
+            }
         },
         prevPage() {
-            this.pageNum -= 1;
+            if (this.pageNum > 0) {
+                this.pageNum -= 1;
+            }
         },
         remake: function(){
             this.opensModls = true;
@@ -294,16 +293,14 @@ export default {
             this.closeText=false;
         },
         clickedtitles: function(i){
+            const actualIndex = (this.pageNum * this.pageSize) + i;
             this.openModal = true;
             this.id = sessionStorage.getItem('userid')
-            this.selectedtitle = this.todos[i]
+            this.selectedtitle = this.todos[actualIndex];
             apiClient.get('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/mentscollec/'+ this.selectedtitle.num[0],{
             },{ withCredentials: true }).then(response => {
                 this.finisi=response.data.ment;
-                // console.log(response.data.view)
-                // console.log(this.finisi)
-                // this.comdelet=this.finisi
-                this.todos[i].views = response.data.view;
+                this.todos[actualIndex].views = response.data.view;
             })
             this.closeText=false;
             // console.log(this.finisi)
