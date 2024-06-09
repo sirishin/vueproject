@@ -32,11 +32,13 @@
                                             {{ value[1] }}
                                         </p>
                                         </div>
-                                        <div v-if="readMore == true" class="read-more">
-                                            <a @click="readMore =! readMore">더보기</a>
-                                        </div>
-                                        <div v-else class="read-less">
-                                            <a @click="readMore =! readMore">줄이기</a>
+                                         <div v-if="value[1].length > 100">
+                                            <div v-if="readMore == true"  class="read-more">
+                                                <a @click="readMore =! readMore">더보기</a>
+                                            </div>
+                                            <div v-else class="read-less">
+                                                <a @click="readMore =! readMore">줄이기</a>
+                                            </div>
                                         </div>
                                         <button type="button"  v-if="value[3] == id" class="btn btn-link" @click="deletment(value[4])">삭제</button>
                                     </div>
