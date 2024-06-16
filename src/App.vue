@@ -37,7 +37,7 @@ export default {
     AppFooter
   },
   mounted(){
-    connection: new WebSocket("ws://127.0.0.1:8800")
+    // connection: new WebSocket("ws://127.0.0.1:8800")
   },
   methods: {
     ...mapMutations(["navbarMinimize"])
