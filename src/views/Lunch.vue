@@ -43,7 +43,11 @@
             </div>
       </div>
         <br>
-
+      <ins class="kakao_ad_area" style="display:none;"
+          data-ad-unit = "DAN-DHqYsK4L6x4ryFrE"
+          data-ad-width = "320"
+          data-ad-height = "50"></ins>
+          <component is="script" src="//t1.daumcdn.net/kas/static/ba.min.js"></component>
       
       <div v-if="showModal" class="modal-backdrop" @click.self="closeModal">
         <div class="modal-content">
