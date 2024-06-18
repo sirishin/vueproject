@@ -158,6 +158,11 @@
                 </div>
                 <button class="btn btn" style="background-color: #eb6995; color: aliceblue; margin-right: 75%;" @click="opensModal">글쓰기</button>
         </div>
+        <ins class="kakao_ad_area" style="display:none;"
+            data-ad-unit = "DAN-iruoaTosJ2WQJKFk"
+            data-ad-width = "320"
+            data-ad-height = "100"></ins>
+        <component is="script" src="//t1.daumcdn.net/kas/static/ba.min.js"></component>
     </section>
 
 
