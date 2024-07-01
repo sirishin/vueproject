@@ -55,11 +55,11 @@ export default defineComponent({
           answeredCorrectly: false
         },
         {
-          question: '피타고라스의 정리는 어떤 도형에 관련된 것인가요?',
+          question: '중력 퍼텐셜 에너지의 공식은 무엇인가요?',
           answers: {
-            a: '삼각형',
-            b: '사각형',
-            c: '원'
+            a: 'mgh',
+            b: '1/2mv^2',
+            c: 'mgh+1/2mv^2'
           },
           correct: 'a',
           answeredCorrectly: false
@@ -75,10 +75,10 @@ export default defineComponent({
           answeredCorrectly: false
         },
         {
-          question: '태양계에서 가장 큰 행성은 무엇인가요?',
+          question: '다음 중 행성이 아닌 것은 무엇인가요?',
           answers: {
             a: '지구',
-            b: '목성',
+            b: '태양',
             c: '토성'
           },
           correct: 'b',
