@@ -28,6 +28,7 @@
 <script>
 import { defineComponent, reactive } from 'vue';
 import axios from 'axios';
+import apiClient from '@/main.js';
 
 export default defineComponent({
   data(){
