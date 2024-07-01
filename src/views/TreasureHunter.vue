@@ -158,7 +158,7 @@ export default defineComponent({
         try {
           const datsa ={'stamp': stampCount, 'id':sessionStorage.getItem('userid')}
           console.log(datsa)
-          await axios.post('/api/stampretrun', { datsa});
+          await apiClient.post('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/stampretrun', { datsa});
           console.log(`Sent ${stampCount} stamps to the server`);
         } catch (error) {
           console.error('Failed to send stamp count:', error);
