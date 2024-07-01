@@ -20,6 +20,7 @@
         </sidenav-collapse>
       </a>
       </li>
+      
       <li class="nav-item">
         <a @click="tSidebar">
         <sidenav-collapse
@@ -32,6 +33,22 @@
           >
           <template v-slot:icon>
             <i class="material-icons-round opacity-10 fs-5">burst_mode</i>
+          </template>
+        </sidenav-collapse>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a @click="tSidebar">
+        <sidenav-collapse
+          url="#"
+          :aria-controls="''"
+          v-bind:collapse="false"
+          collapseRef="TreauserHunter"
+          navText="이벤트"
+          style="font-weight: bold;"
+          >
+          <template v-slot:icon>
+            <i class="material-icons-round opacity-10 fs-5">assistant</i>
           </template>
         </sidenav-collapse>
         </a>
