@@ -10,12 +10,18 @@ import Weather from "../views/Weather.vue";
 import Businfo from "../views/Businfo.vue";
 import IdentityProfile from "../views/IdentityProfile.vue";
 import Jireoi from "../views/Jireoi.vue"
+import TreasureHunter from "../views/TreasureHunter.vue";
 
 const routes = [
   {
     path: "/",
     name: "/",
     redirect: "/Lunch",
+  },
+    {
+    path: "/TreasureHunter",
+    name: "TreasureHunter",
+    component: TreasureHunter,
   },
   {
     path: "/Jireoi",
