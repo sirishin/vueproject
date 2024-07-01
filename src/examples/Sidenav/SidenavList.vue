@@ -43,7 +43,7 @@
           url="#"
           :aria-controls="''"
           v-bind:collapse="false"
-          collapseRef="TreauserHunter"
+          collapseRef="TreasureHunter"
           navText="이벤트"
           style="font-weight: bold;"
           >
