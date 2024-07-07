@@ -350,7 +350,7 @@ export default {
         upload(){
             // console.log(1)
             // console.log(this.tc);
-            apiClient.post('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/everything/1', { 
+            apiClient.post('https://port-0-flask22-754g42aluyx17vx.sel5.cloudtype.app/api/everything/'+1, { 
             tc: this.tc
             },{ withCredentials: true })
             .catch(function (error) {
