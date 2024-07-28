@@ -43,22 +43,6 @@
           url="#"
           :aria-controls="''"
           v-bind:collapse="false"
-          collapseRef="TreasureHunter"
-          navText="이벤트"
-          style="font-weight: bold;"
-          >
-          <template v-slot:icon>
-            <i class="material-icons-round opacity-10 fs-5">assistant</i>
-          </template>
-        </sidenav-collapse>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a @click="tSidebar">
-        <sidenav-collapse
-          url="#"
-          :aria-controls="''"
-          v-bind:collapse="false"
           collapseRef="Weather"
           navText="날씨"
           style="font-weight: bold;"
