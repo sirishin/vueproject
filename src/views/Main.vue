@@ -222,15 +222,15 @@ export default {
             readMore : true
            };
     },
-    mounted(){
-        if(sessionStorage.getItem('userid')==null){
-            this.$router.push('/Login')
-            alert('로그인 후 이용해 주십시오.')
-        } else{
-            this.getTodos();
-        }
+    // mounted(){
+    //     if(sessionStorage.getItem('userid')==null){
+    //         this.$router.push('/Login')
+    //         alert('로그인 후 이용해 주십시오.')
+    //     } else{
+    //         this.getTodos();
+    //     }
    
-    },
+    // },
     computed: {
         pageCount: function() {
             const listLeng = this.todos.length;
